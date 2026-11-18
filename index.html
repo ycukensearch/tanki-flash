@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Танки Флэш - браузерная флэш стратегия</title>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <style>
+        body { margin: 0; display: flex; justify-content: center; background: #222; }
+        #container { width: 100%; max-width: 480px; }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
+        window.addEventListener("DOMContentLoaded", () => {
+            let ruffle = window.RufflePlayer.newest();
+            let player = ruffle.createPlayer();
+            document.getElementById("container").appendChild(player);
+            player.ruffle().load("tanks.swf"); // Имя файла должно совпадать
+        });
+    </script>
+</body>
+</html>
