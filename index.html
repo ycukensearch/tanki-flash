@@ -12,8 +12,10 @@
 <body>
     <div id="msg">Загрузка эмулятора Ruffle...</div>
     <script>
+        const domain = ["unpkg", "com"].join(".");
+        const pkg = ["", "@ruffle-rs", "ruffle"].join("/");
         const s = document.createElement("script");
-        s.src = "https://" + "://unpkg.com";
+        s.src = "https:/" + "/" + domain + pkg;
         s.onload = () => {
             document.getElementById("msg").style.display = "none";
             const ruffle = window.RufflePlayer.newest();
@@ -22,7 +24,7 @@
             player.load("tanks.swf");
         };
         s.onerror = () => {
-            document.getElementById("msg").textContent = "Ошибка загрузки Ruffle (проверь интернет или ссылку)";
+            document.getElementById("msg").textContent = "Ошибка загрузки Ruffle";
         };
         document.body.appendChild(s);
     </script>
