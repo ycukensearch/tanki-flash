@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Танки Флэш</title>
+    <title>Танки Flash</title>
     <style>
-        body { margin: 0; background: #111; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        body { margin: 0; background: #111; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
         ruffle-player { width: 100vw; height: 100vh; max-width: 800px; max-height: 600px; }
     </style>
-    <script src="https://unpkg.com"></script>
 </head>
 <body>
+    <div id="msg">Загрузка эмулятора Ruffle...</div>
     <script>
-        window.RufflePlayer = window.RufflePlayer || {};
-        window.addEventListener("load", () => {
+        const s = document.createElement("script");
+        s.src = "https://" + "://unpkg.com";
+        s.onload = () => {
+            document.getElementById("msg").style.display = "none";
             const ruffle = window.RufflePlayer.newest();
             const player = ruffle.createPlayer();
             document.body.appendChild(player);
             player.load("tanks.swf");
-        });
+        };
+        s.onerror = () => {
+            document.getElementById("msg").textContent = "Ошибка загрузки Ruffle (проверь интернет или ссылку)";
+        };
+        document.body.appendChild(s);
     </script>
 </body>
 </html>
