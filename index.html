@@ -11,10 +11,11 @@
 </head>
 <body>
    <h1>Танки Флэш</h1>
-     <audio id="bg-audio" loop muted>
+   <audio controls loop>
   <source src="https://ycukensearch.github.io/tanki-flash/ost.mp3" type="audio/mpeg">
+  Ваш браузер не поддерживает аудио.
 </audio>
-<button onclick="document.getElementById('bg-audio').play()">Включить фоновую музыку</button>
+
     <div id="msg">Загрузка эмулятора Ruffle...</div>
     <script>
         const domain = ["unpkg", "com"].join(".");
